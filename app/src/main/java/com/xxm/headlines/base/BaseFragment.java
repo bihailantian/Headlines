@@ -17,8 +17,14 @@ public abstract class BaseFragment extends Fragment {
     protected Context mContext;
     protected View mRootView;
 
+
     public BaseFragment() {
     }
+
+
+
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,7 +52,7 @@ public abstract class BaseFragment extends Fragment {
      *
      * @param inflater
      * @param savedInstanceState
-     * @return
+     * @return View
      */
     protected abstract View initView(LayoutInflater inflater, Bundle savedInstanceState);
 
@@ -60,9 +66,9 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 获取rootView
      *
-     * @return
+     * @return View
      */
-    protected View getmRootView() {
+    protected View getRootView() {
         return mRootView;
     }
 }
