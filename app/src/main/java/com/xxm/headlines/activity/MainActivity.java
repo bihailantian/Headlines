@@ -37,16 +37,17 @@ public class MainActivity extends BaseActivity {
         mTitleList = getResources().getStringArray(R.array.home_title);
 
         mFragmentList = new ArrayList<>();
-        mFragmentList.add(new HomeFragment());
-        mFragmentList.add(new HomeFragment());
-        mFragmentList.add(new HomeFragment());
-        mFragmentList.add(new HomeFragment());
-        mFragmentList.add(new HomeFragment());
-        mFragmentList.add(new HomeFragment());
-        mFragmentList.add(new HomeFragment());
-        mFragmentList.add(new HomeFragment());
-        mFragmentList.add(new HomeFragment());
-        mFragmentList.add(new HomeFragment());
+        mFragmentList.add( HomeFragment.newInstance("top"));
+        mFragmentList.add( HomeFragment.newInstance("shehui"));
+        mFragmentList.add( HomeFragment.newInstance("guonei"));
+        mFragmentList.add( HomeFragment.newInstance("guoji"));
+        mFragmentList.add( HomeFragment.newInstance("yule"));
+        mFragmentList.add( HomeFragment.newInstance("tiyu"));
+        mFragmentList.add( HomeFragment.newInstance("junshi"));
+        mFragmentList.add( HomeFragment.newInstance("keji"));
+        mFragmentList.add( HomeFragment.newInstance("caijing"));
+        mFragmentList.add( HomeFragment.newInstance("shishang"));
+
 
         mTableLayout.setTabMode(TabLayout.MODE_SCROLLABLE);  //MODE_SCROLLABLE tab的个数多的时候用
         HomeAdapter adapter = new HomeAdapter(getSupportFragmentManager(), mFragmentList, mTitleList);

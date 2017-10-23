@@ -38,11 +38,12 @@ import okhttp3.Call;
  */
 public class HomeFragment extends Fragment {
 
+    private static final String TYPE = "type"; //类型
     private SwipeRefreshLayout mSwiperefresh;
     private RecyclerView mRecyclerView;
 
     protected Context mContext; //上下文
-    private String mType = "top"; //类型
+    private String mType; //类型
     private LinearLayoutManager mLayoutManager;   //创建默认的线性LayoutManager
     boolean isLoadingMore = false; //是否加载更多
 
@@ -51,10 +52,29 @@ public class HomeFragment extends Fragment {
     }
 
 
+    public static HomeFragment newInstance(String type) {
+        HomeFragment fragment = new HomeFragment();
+        Bundle args = new Bundle();
+        args.putString(TYPE, type);
+
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         mContext = getActivity();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null){
+            mType = getArguments().getString(TYPE);
+        }
     }
 
     @Nullable
